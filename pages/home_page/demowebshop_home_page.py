@@ -1,4 +1,5 @@
 import allure
+import requests
 
 from selene import browser, have, be
 from selene.core.conditions import Condition as EC

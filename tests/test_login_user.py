@@ -17,4 +17,3 @@ class TestLoginUser:
             .open() \
             .is_opened() \
             .check_user_is_logged_in(user_login=User.USER_LOGIN)
-
