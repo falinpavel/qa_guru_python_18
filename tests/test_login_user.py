@@ -9,10 +9,9 @@ class TestLoginUser:
 
     @allure.story("Login user with api")
     @allure.title("Login user with api and check user is logged in ui")
-    def test_login_user_with_api(self):
-        demowebshop_app.login_page.api_login_user(
-            user_login=User.USER_LOGIN,
-            user_password=User.USER_PASSWORD
+    def test_login_user_with_api(self, api_auth_cookie):
+        demowebshop_app.login_page.login_user_with_api(
+            cookie=api_auth_cookie
         )
         demowebshop_app.home_page \
             .open() \
