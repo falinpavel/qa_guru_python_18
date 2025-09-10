@@ -10,15 +10,13 @@ class DemowebshopLoginPage:
 
     def __init__(self):
         self.url = Links.LOGIN_PAGE
-        self.user_login = User.USER_LOGIN
-        self.user_password = User.USER_PASSWORD
 
-    def api_login_user(self):
+    def api_login_user(self, user_login, user_password):
         response = requests.post(
             url=self.url,
             json={
-                "Email": self.user_login,
-                "Password": self.user_password
+                "Email": user_login,
+                "Password": user_password
             },
             allow_redirects=False
         )
