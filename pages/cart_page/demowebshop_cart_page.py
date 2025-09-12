@@ -1,6 +1,6 @@
 import allure
 
-from selene import browser, have, be
+from selene import browser, be, by, command, have
 from selene.core.conditions import Condition as EC
 
 from helpers.data.links import Links
@@ -19,4 +19,5 @@ class DemowebshopCartPage:
     @allure.step("Check added product in cart")
     def check_product_in_cart(self, product_name):
         with allure.step(f"Check product {product_name}"):
-            browser.all(".product-name").should(EC.by_and(have.text(product_name)))
+            browser.element(f"//a[@class='product-name' and text()='{product_name}']").should(
+                EC.by_and(be.visible, have.text(product_name)))
