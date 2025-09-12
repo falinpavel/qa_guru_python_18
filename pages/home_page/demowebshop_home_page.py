@@ -39,4 +39,4 @@ class DemowebshopHomePage:
         with allure.step("Get shopping cart quantity"):
             """В элементе есть скобки (коллиество), поэтому нужно удалить их"""
             quantity = browser.element(".header-links span.cart-qty").text.replace("(", "").replace(")", "")
-            return quantity
+        return quantity

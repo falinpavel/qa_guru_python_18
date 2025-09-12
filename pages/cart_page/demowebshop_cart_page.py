@@ -13,4 +13,3 @@ class DemowebshopCartPage:
         with allure.step("Open cart page"):
             browser.open(self.url)
         return self
-    
