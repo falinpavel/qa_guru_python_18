@@ -2,13 +2,22 @@ import allure
 
 from helpers.application_manager.application_manager import demowebshop_app
 from helpers.data.user import User
+from utils.allure_custom_marks import allure_high_level_marks, allure_mid_level_marks
 
 
-@allure.feature("Login user")
+@allure_high_level_marks(
+    epic="Authorization",
+    feature="Authorization users"
+)
 class TestLoginUser:
 
-    @allure.story("Login user with api")
-    @allure.title("Login user with api and check user is logged in ui")
+    @allure_mid_level_marks(
+        story="Authorization user and set cookies",
+        testcase_id="TC_02",
+        title="Authorization user and check user is logged in ui",
+        label='UI + API',
+        owner="AQA Falin Pavel"
+    )
     def test_login_user_with_api(self, api_auth_session):
         session = api_auth_session
         demowebshop_app.login_page.login_user_with_api_session(session=session)
