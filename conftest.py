@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 
 from helpers.data.links import Links
 from helpers.data.user import User
+from utils import allure_attachments
 
 
 @pytest.fixture(
@@ -20,7 +21,14 @@ def browser_configurate():
     chrome_options.add_argument("--window-size=1920,1080")
     browser.config.driver_options = chrome_options
 
-    yield browser.quit()
+    yield
+
+    allure_attachments.add_screenshot(browser=browser)
+    allure_attachments.add_logs(browser=browser)
+    allure_attachments.add_html(browser=browser)
+    allure_attachments.add_video(browser=browser)
+
+    browser.quit()
 
 
 @pytest.fixture(scope="session")

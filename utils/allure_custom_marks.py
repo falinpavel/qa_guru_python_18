@@ -1,4 +1,5 @@
 import allure
+
 from functools import wraps
 
 
