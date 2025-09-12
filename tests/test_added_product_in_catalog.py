@@ -17,11 +17,12 @@ class TestAddedProductInCatalog:
         owner="AQA Falin Pavel"
     )
     def test_add_product_in_catalog_and_check_cart_icon(self, api_auth_session):
-        session = api_auth_session
-        demowebshop_app.login_page.login_user_with_api_session(session=session)
+        demowebshop_app.login_page.login_user_with_api_session(session=api_auth_session)
         demowebshop_app.home_page.open().is_opened()
         demowebshop_app.catalog_page.add_product_simple_computer_with_api(
-            session=session,
-            product_id=Products.simple_computer,
+            session=api_auth_session,
+            product_id=Products.simple_computer["id"],
             quantity="1"
         )
+        demowebshop_app.header_menu.click_on_top_header_links_button("Shopping cart")
+        demowebshop_app.cart_page.check_product_in_cart(product_name=Products.simple_computer["name"])

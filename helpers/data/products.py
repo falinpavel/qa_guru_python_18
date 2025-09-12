@@ -1,6 +1,5 @@
-from dataclasses import dataclass
-
-
-@dataclass
 class Products:
-    simple_computer: str = "75/1"
+    simple_computer: dict = {
+        "id": "75/1",
+        "name": "Simple Computer"
+    }

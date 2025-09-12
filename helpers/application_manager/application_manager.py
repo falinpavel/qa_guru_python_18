@@ -1,6 +1,6 @@
 from pages.cart_page.demowebshop_cart_page import DemowebshopCartPage
 from pages.catalog.demowebshop_catalog import DemowebshopCatalogPage
-from pages.components.header_menu.demowebshop_header_menu import DemowebshopHeaderMenu
+from components.header_menu.demowebshop_header_menu import DemowebshopHeaderMenu
 from pages.home_page.demowebshop_home_page import DemowebshopHomePage
 from pages.login_page.demowebshop_login_page import DemowebshopLoginPage
 

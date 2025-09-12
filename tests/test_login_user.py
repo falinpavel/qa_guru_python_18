@@ -17,8 +17,7 @@ class TestLoginUser:
         owner="AQA Falin Pavel"
     )
     def test_login_user_with_api(self, api_auth_session):
-        session = api_auth_session
-        demowebshop_app.login_page.login_user_with_api_session(session=session)
+        demowebshop_app.login_page.login_user_with_api_session(session=api_auth_session)
         demowebshop_app.home_page \
             .open() \
             .is_opened() \

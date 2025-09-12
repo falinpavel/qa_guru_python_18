@@ -11,10 +11,10 @@ class DemowebshopHeaderMenu:
                 EC.by_and(be.visible, have.text(group_name))).hover().click()
         return self
 
-    def click_on_cart(self):
+    def click_on_top_header_links_button(self, button):
         with allure.step("Click on cart"):
-            browser.element(".header-links a[class='ico-cart']").should(
-                EC.by_and(be.visible, have.text("Cart"))).click()
+            browser.element(f"//div[@class='header-links']//span[contains(text(), '{button}')]").should(
+                EC.by_and(be.visible, have.text(button))).click()
         return self
 
 
