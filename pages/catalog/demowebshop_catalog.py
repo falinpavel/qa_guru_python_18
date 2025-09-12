@@ -1,7 +1,5 @@
 import logging
-
 import allure
-import requests
 
 from helpers.data.links import Links
 
@@ -12,20 +10,24 @@ class DemowebshopCatalogPage:
         self.url = Links.HOME_PAGE
 
     @allure.step("Add product to cart with api")
-    def add_product_to_cart_with_api(self, cookie, product_id):
+    def add_product_simple_computer_with_api(self, session, product_id, quantity):
         with allure.step("Add product to cart with api"):
-            response = requests.post(
-                url=f"{self.url}addproducttocart/catalog/{product_id}",
+            response = session.post(
+                url=f"{self.url}/addproducttocart/details/{product_id}",
                 headers={
-                    "Cookie": cookie
-                }
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                data={
+                    "product_attribute_75_5_31": "96",
+                    "product_attribute_75_6_32": "99",
+                    "product_attribute_75_3_33": "103",
+                    "product_attribute_75_8_35": "108",
+                    "addtocart_75.EnteredQuantity": quantity
+                },
+                allow_redirects=False
             )
-            allure.attach(
-                body=response.text,
-                name="Response body",
-                attachment_type=allure.attachment_type.TEXT,
-                extension="json"
-            )
+
             logging.info(response.status_code)
             logging.info(response.text)
             assert response.status_code == 200

@@ -33,3 +33,10 @@ class DemowebshopHomePage:
             browser.element("div[class='header-links'] a[class='account']").should(
                 EC.by_and(be.visible, have.text(user_login)))
         return self
+
+    @allure.step("Get shopping cart quantity")
+    def get_sopping_cart_quantity(self):
+        with allure.step("Get shopping cart quantity"):
+            """В элементе есть скобки (коллиество), поэтому нужно удалить их"""
+            quantity = browser.element(".header-links span.cart-qty").text.replace("(", "").replace(")", "")
+            return quantity

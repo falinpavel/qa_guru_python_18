@@ -1,3 +1,4 @@
+from pages.cart_page.demowebshop_cart_page import DemowebshopCartPage
 from pages.catalog.demowebshop_catalog import DemowebshopCatalogPage
 from pages.components.header_menu.demowebshop_header_menu import DemowebshopHeaderMenu
 from pages.home_page.demowebshop_home_page import DemowebshopHomePage
@@ -11,6 +12,7 @@ class ApplicationManager:
         self.home_page = DemowebshopHomePage()
         self.header_menu = DemowebshopHeaderMenu()
         self.catalog_page = DemowebshopCatalogPage()
+        self.cart_page = DemowebshopCartPage()
 
 
 demowebshop_app = ApplicationManager()
