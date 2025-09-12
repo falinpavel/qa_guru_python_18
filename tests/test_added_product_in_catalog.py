@@ -1,5 +1,3 @@
-import allure
-
 from helpers.application_manager.application_manager import demowebshop_app
 from helpers.data.products import Products
 from utils.allure_custom_marks import allure_high_level_marks, allure_mid_level_marks
