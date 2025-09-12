@@ -19,5 +19,6 @@ class DemowebshopCartPage:
     @allure.step("Check added product in cart")
     def check_product_in_cart(self, product_name):
         with allure.step(f"Check product {product_name}"):
-            browser.element(f"//a[@class='product-name' and text()='{product_name}']").should(
+            browser.element("//input[@name='updatecart']").perform(command.js.scroll_into_view)
+            browser.element(f"""//a[@class='product-name' and text()="{product_name}"]""").should(
                 EC.by_and(be.visible, have.text(product_name)))

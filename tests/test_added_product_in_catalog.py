@@ -26,7 +26,7 @@ class TestAddedProductInCatalog:
             product_id=Products.simple_computer["id"],
             quantity="1"
         )
-        demowebshop_app.catalog_page.add_product_simple_computer_with_api(
+        demowebshop_app.catalog_page.add_product_women_top_with_api(
             session=api_auth_session,
             product_id=Products.women_top["id"],
             quantity="3"
@@ -34,3 +34,4 @@ class TestAddedProductInCatalog:
         # THEN
         demowebshop_app.header_menu.click_on_top_header_links_button("Shopping cart")
         demowebshop_app.cart_page.check_product_in_cart(product_name=Products.simple_computer["name"])
+        demowebshop_app.cart_page.check_product_in_cart(product_name=Products.women_top["name"])
